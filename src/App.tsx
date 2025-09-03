@@ -1,179 +1,187 @@
-import React, { useState } from "react";
+import { ArrowRight, Instagram, Linkedin, Facebook } from "lucide-react";
 
-export default function Landing() {
-  const [copied, setCopied] = useState(false);
-
-  const copy = async (txt) => {
-    try {
-      await navigator.clipboard.writeText(txt);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch { }
-  };
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-white text-black font-sans">
-      {/* Simple header */}
-      <div className="border-b px-4 py-3">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-medium">SmartChunk</h1>
-          <div className="text-sm space-x-4">
-            <a href="/docs" className="hover:underline">Docs</a>
-            <a href="#usage" className="hover:underline">Usage</a>
-            <a href="https://github.com/yourorg/smartchunk" className="hover:underline">GitHub</a>
+    <div className="font-sans">
+      {/* Navbar */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-2 font-extrabold text-2xl text-gray-900">
+            <span className="text-[#007C6A]">Career</span>
+            <span className="text-[#D73F09]">Search</span>
+          </div>
+
+          {/* Nav Links */}
+          <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
+            <a href="#" className="hover:text-gray-900">For Institutions</a>
+            <a href="#" className="hover:text-gray-900">For Individuals</a>
+            <a href="#" className="hover:text-gray-900">About</a>
+          </nav>
+
+          {/* Buttons */}
+          <div className="flex gap-3">
+            <a
+              href="#"
+              className="bg-[#007C6A] text-white px-5 py-2 rounded-lg font-semibold hover:opacity-90"
+            >
+              Sign In
+            </a>
+            <a
+              href="#"
+              className="bg-[#D73F09] text-white px-5 py-2 rounded-lg font-semibold hover:opacity-90"
+            >
+              Start Journey
+            </a>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* Title and description */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-medium mb-4">SmartChunk</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            Structure-aware document chunking for RAG applications. Preserves context while improving retrieval performance.
-          </p>
+      {/* Hero Section */}
+      <section className="bg-[#f2f0f8]">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-          <div className="bg-gray-100 border-l-4 border-blue-500 p-4 mb-8">
-            <p className="text-sm">
-              <strong>Performance:</strong> +37.4% NDCG@10 improvement, 28% smaller index size, perfect fidelity for code and tables.
+          {/* Left Content */}
+          <div>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+              Transform Career <br />
+              Development With AI- <br />
+              Powered Coaching
+            </h1>
+            <p className="mt-6 text-lg text-gray-700">
+              Career Search is your AI-powered guide to discovering opportunities,
+              building essential skills, and preparing for the future. Designed to help
+              students, professionals, and institutions close skill gaps and improve outcomes.
+            </p>
+
+            {/* Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#"
+                className="bg-[#007C6A] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:opacity-90"
+              >
+                Start Your Career Journey
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="bg-[#D73F09] text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:opacity-90"
+              >
+                Sign In
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+
+            {/* Highlight Text */}
+            <p className="mt-6 text-gray-800 text-base">
+              <span className="font-bold text-orange-600">90%</span> of learners
+              report improved career readiness after using Career Search.
             </p>
           </div>
+
+          {/* Right Side – Illustrations */}
+          <div className="flex flex-col gap-6">
+            <div className="bg-white shadow rounded-2xl p-6">
+              <img
+                src="/undraw_friendly-guy-avatar_dqp5.svg"
+                alt="Illustration"
+                className="rounded-lg w-full"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white shadow rounded-2xl p-4">
+                <img
+                  src="/illustration2.png"
+                  alt="Build career skills"
+                  className="rounded-lg w-full"
+                />
+              </div>
+              <div className="bg-white shadow rounded-2xl p-4">
+                <img
+                  src="/illustration3.png"
+                  alt="Career readiness"
+                  className="rounded-lg w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t mt-10">
+        <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 lg:grid-cols-4 gap-10">
+          {/* Brand & blurb */}
+          <div>
+            <div className="flex items-baseline gap-2 font-extrabold text-3xl text-gray-900">
+              <span className="text-[#007C6A]">Career</span>
+              <span className="text-[#D73F09]">Search</span>
+            </div>
+            <p className="mt-4 text-gray-700 max-w-sm">
+              AI-powered career development for everyone, from students to job‑seekers.
+            </p>
+            <div className="mt-6 flex items-center gap-4">
+              {/* Badges – replace with your images */}
+              <img src="/badge1.png" alt="Badge 1" className="h-16 w-auto object-contain" />
+              <img src="/badge2.png" alt="Badge 2" className="h-16 w-auto object-contain" />
+              <img src="/badge3.png" alt="Badge 3" className="h-16 w-auto object-contain" />
+              <img src="/badge4.png" alt="Badge 4" className="h-16 w-auto object-contain" />
+            </div>
+          </div>
+
+          {/* Column: Coach */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-4">Coach</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li><a href="#" className="hover:text-gray-900">Sign in</a></li>
+              <li><a href="#" className="hover:text-gray-900">Partner</a></li>
+              <li><a href="#" className="hover:text-gray-900">About Coach</a></li>
+              <li><a href="#" className="hover:text-gray-900">Impact</a></li>
+              <li><a href="#" className="hover:text-gray-900">Safety</a></li>
+              <li><a href="#" className="hover:text-gray-900">Guidelines for Use</a></li>
+              <li><a href="#" className="hover:text-gray-900">Help Center</a></li>
+              <li><a href="#" className="hover:text-gray-900">FAQ</a></li>
+              <li><a href="#" className="hover:text-gray-900">Blog</a></li>
+              <li><a href="#" className="hover:text-gray-900">Press</a></li>
+            </ul>
+          </div>
+
+          {/* Column: CareerSearch.org */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-4">CareerSearch.org</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li><a href="#" className="hover:text-gray-900">Home</a></li>
+              <li><a href="#" className="hover:text-gray-900">Team</a></li>
+              <li><a href="#" className="hover:text-gray-900">Mission</a></li>
+              <li><a href="#" className="hover:text-gray-900">Ask a Question</a></li>
+            </ul>
+          </div>
+
+          {/* Column: Socials */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-4">Connect with us</h4>
+            <div className="flex items-center gap-4">
+              <a href="#" aria-label="Instagram" className="text-gray-700 hover:text-gray-900"><Instagram className="h-6 w-6" /></a>
+              <a href="#" aria-label="LinkedIn" className="text-gray-700 hover:text-gray-900"><Linkedin className="h-6 w-6" /></a>
+              <a href="#" aria-label="Facebook" className="text-gray-700 hover:text-gray-900"><Facebook className="h-6 w-6" /></a>
+            </div>
+          </div>
         </div>
 
-        {/* Installation */}
-        <section id="install" className="mb-12">
-          <h3 className="text-xl font-medium mb-4">Installation</h3>
-          <div className="bg-gray-50 border p-4 rounded mb-4">
-            <div className="flex justify-between items-center">
-              <code className="text-sm">pip install smartchunk</code>
-              <button
-                onClick={() => copy('pip install smartchunk')}
-                className="text-xs px-2 py-1 border rounded hover:bg-gray-100"
-              >
-                {copied ? "Copied" : "Copy"}
-              </button>
+        {/* Bottom bar */}
+        <div className="border-t">
+          <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-700">
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:text-gray-900">Privacy Policy</a>
+              <a href="#" className="hover:text-gray-900">Terms and Conditions</a>
+            </div>
+            <div className="text-center md:text-right">
+              <p>© Copyright 2025. All Rights Reserved.</p>
+              <p className="mt-1">Career Search is a community project for educational use.</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600">Requires Python 3.8+</p>
-        </section>
-
-        {/* Quick example */}
-        <section id="usage" className="mb-12">
-          <h3 className="text-xl font-medium mb-4">Quick Start</h3>
-
-          <div className="mb-6">
-            <h4 className="font-medium mb-2">Command line:</h4>
-            <div className="bg-gray-50 border p-4 rounded">
-              <pre className="text-sm overflow-x-auto"><code>{`smartchunk chunk document.md --max-tokens 500 --format markdown`}</code></pre>
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <h4 className="font-medium mb-2">Python:</h4>
-            <div className="bg-gray-50 border p-4 rounded">
-              <pre className="text-sm overflow-x-auto"><code>{`from smartchunk import chunk_text
-
-chunks = chunk_text(
-    "Your document content here...",
-    max_tokens=500,
-    format="markdown"
-)`}</code></pre>
-            </div>
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className="mb-12">
-          <h3 className="text-xl font-medium mb-4">Features</h3>
-          <ul className="space-y-2 text-gray-700">
-            <li>• Structure-aware chunking (respects headings, code blocks, tables)</li>
-            <li>• Semantic similarity for intelligent boundaries</li>
-            <li>• Configurable chunk size and overlap</li>
-            <li>• Multiple format support (Markdown, HTML, text)</li>
-            <li>• Deduplication and optimization</li>
-          </ul>
-        </section>
-
-        {/* Performance data */}
-        <section className="mb-12">
-          <h3 className="text-xl font-medium mb-4">Performance</h3>
-          <div className="border rounded">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b">
-                <tr>
-                  <th className="text-left p-3 font-medium">Metric</th>
-                  <th className="text-left p-3 font-medium">SmartChunk</th>
-                  <th className="text-left p-3 font-medium">Naive Chunking</th>
-                  <th className="text-left p-3 font-medium">Improvement</th>
-                </tr>
-              </thead>
-              <tbody className="text-sm">
-                <tr className="border-b">
-                  <td className="p-3">NDCG@10</td>
-                  <td className="p-3">0.724</td>
-                  <td className="p-3">0.527</td>
-                  <td className="p-3 text-green-600">+37.4%</td>
-                </tr>
-                <tr className="border-b">
-                  <td className="p-3">Index Size</td>
-                  <td className="p-3">142 MB</td>
-                  <td className="p-3">197 MB</td>
-                  <td className="p-3 text-green-600">-28%</td>
-                </tr>
-                <tr>
-                  <td className="p-3">Code/Table Fidelity</td>
-                  <td className="p-3">1.0</td>
-                  <td className="p-3">0.73</td>
-                  <td className="p-3 text-green-600">+37%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">Benchmarked on technical documentation corpus</p>
-        </section>
-
-        {/* Configuration */}
-        <section className="mb-12">
-          <h3 className="text-xl font-medium mb-4">Configuration</h3>
-          <div className="bg-gray-50 border p-4 rounded">
-            <pre className="text-sm overflow-x-auto"><code>{`# Command line options
-smartchunk chunk input.md \\
-  --max-tokens 500 \\
-  --overlap 50 \\
-  --min-similarity 0.3 \\
-  --format markdown \\
-  --output chunks.jsonl
-
-# Python configuration
-from smartchunk import ChunkConfig
-
-config = ChunkConfig(
-    max_tokens=500,
-    overlap_tokens=50,
-    min_similarity=0.3,
-    preserve_structure=True
-)`}</code></pre>
-          </div>
-        </section>
-
-        {/* Documentation links */}
-        <section>
-          <h3 className="text-xl font-medium mb-4">Documentation</h3>
-          <ul className="space-y-1">
-            <li><a href="/docs" className="text-blue-600 hover:underline">API Reference</a></li>
-            <li><a href="/docs" className="text-blue-600 hover:underline">Examples</a></li>
-            <li><a href="https://github.com/yourorg/smartchunk" className="text-blue-600 hover:underline">Source Code</a></li>
-            <li><a href="https://github.com/yourorg/smartchunk/issues" className="text-blue-600 hover:underline">Report Issues</a></li>
-          </ul>
-        </section>
-      </div>
-
-      {/* Simple footer */}
-      <div className="border-t mt-16 py-4 text-center text-sm text-gray-500">
-        <div className="max-w-4xl mx-auto px-4">
-          SmartChunk • MIT License • <a href="https://github.com/yourorg/smartchunk" className="hover:underline">GitHub</a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
